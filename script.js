@@ -5,55 +5,49 @@ function generatePassword() {
 
 // Creating a list of Variables using ARRAY
 
-const upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-const lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const symbol = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "~", "`", "|", "}", "{", "[", "]", ":", ";", "?", ">", "<", ",", ".", "/", "-", "="];
+const capitalLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const smallLetter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const numeral = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "~", "`", "|", "}", "{", "[", "]", ":", ";", "?", ">", "<", ",", ".", "/", "-", "="];
 
 // Initialising a variable array
 
-var resultArray = [];
-var userArray = [];
+var effectArray = [];
+var costumerArray = [];
 
-upperCase [1]
-
-//The prompt is created
+//The popup display has been created
 
 var numCharacter = prompt ("Enter the lenght of your password between 8 and 128");
 
-// Especifying the checking options
+// Asking the employee the options of the password
 
-var numbers = confirm ("Numbers on password?");
-var lowercases = confirm ("Lowercases on Password?");
-var uppercases = confirm ("Uppercases on Password?");
-var characters = confirm ("Special Characters on Password?");
+var numerals = confirm ("Include NUMBERS on Password?");
+var smallLetters = confirm ("Include small letters on Password?");
+var capitalLetters = confirm ("Include CAPITAL LETTERS on Password?");
+var specialChars = confirm ("Include $peci@l Ch@r@cters on Password?");
 
 // Conditioning of the array
 
-if (numbers){
-  resultArray = resultArray.concat(number);
+if (numerals){
+  effectArray = effectArray.concat(numeral);
 }
-
-if (lowercases){
-  resultArray = resultArray.concat(lowerCase);
+if (smallLetters){
+  effectArray = effectArray.concat(smallLetter);
 }
-
-if (uppercases){
-  resultArray = resultArray.concat(upperCase);
+if (capitalLetters){
+  effectArray = effectArray.concat(capitalLetter);
 }
-
-if (characters){
-  resultArray = resultArray.concat(symbol);
+if (specialChars){
+  effectArray = effectArray.concat(specialChar);
 }
-console.log(resultArray)
+console.log(effectArray)
 
 for (var i = 0; i < numCharacter; i++) {
-  userArray.push (resultArray[Math.floor(Math.random() * resultArray.length)]);
+  costumerArray.push (effectArray[Math.floor(Math.random() * effectArray.length)]);
   }
 
-  return userArray.join("") ;
+  return costumerArray.join("") ;
 }
-
 
 // Write password to the #password input
 function writePassword() {
@@ -61,8 +55,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-}
+  }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
